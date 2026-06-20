@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raksti par mājaslapām un biznesu Latvijā | TEMA.LABS</title>
+<meta name="description" content="Praktiski raksti par mājaslapu izstrādi, cenām un digitālo klātbūtni maziem uzņēmumiem Latvijā. Padomi no TEMA.LABS web studijas.">
+<meta name="keywords" content="mājaslapas raksti, web studijas blogs, mājaslapu izstrāde padomi, bizness internetā Latvijā">
+<meta name="author" content="TEMA.LABS">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#ff3d14">
+<link rel="canonical" href="https://temalabs.github.io/main/blog/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TEMA.LABS">
+<meta property="og:title" content="Raksti par mājaslapām un biznesu Latvijā">
+<meta property="og:description" content="Praktiski raksti par mājaslapu izstrādi, cenām un digitālo klātbūtni maziem uzņēmumiem Latvijā.">
+<meta property="og:url" content="https://temalabs.github.io/main/blog/">
+<meta property="og:locale" content="lv_LV">
+<meta property="og:image" content="https://temalabs.github.io/main/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Raksti par mājaslapām un biznesu Latvijā">
+<meta name="twitter:description" content="Praktiski raksti no TEMA.LABS web studijas.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "TEMA.LABS Raksti",
+  "url": "https://temalabs.github.io/main/blog/",
+  "inLanguage": "lv",
+  "isPartOf": { "@id": "https://temalabs.github.io/main/#website" }
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23ff3d14%22/><text x=%2250%22 y=%2270%22 font-size=%2264%22 font-family=%22Arial%22 font-weight=%22900%22 fill=%22%23000%22 text-anchor=%22middle%22>T</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#08070a; --bg-soft:#0d0c0f; --card:#0f0d10;
+    --accent:#ff3d14; --accent-2:#ff6a3d; --accent-glow:rgba(255,61,20,.45);
+    --yellow:#ffd83d; --text:#f2f0ee; --text-dim:#9a9a9a; --text-dimmer:#6c6c6c;
+    --border:rgba(255,255,255,.08); --border-accent:rgba(255,80,30,.28);
+    --mono:'JetBrains Mono', monospace; --display:'Unbounded', sans-serif; --body:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--text); font-family:var(--body); line-height:1.6; overflow-x:hidden; -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+
+  .glow-bg{position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:radial-gradient(620px 420px at 12% 8%, rgba(255,61,20,.16), transparent 60%),
+               radial-gradient(500px 380px at 90% 28%, rgba(255,61,20,.08), transparent 65%);}
+
+  header{position:sticky; top:0; z-index:50; background:rgba(8,7,10,.86); backdrop-filter:blur(10px); border-bottom:1px solid var(--border);}
+  .nav-wrap{max-width:880px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .logo{display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:700; font-size:15px; letter-spacing:.02em;}
+  .logo-mark{position:relative; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--accent);
+    display:flex; align-items:center; justify-content:center; color:var(--accent); font-weight:900; font-size:17px; flex-shrink:0;
+    box-shadow:0 0 16px var(--accent-glow) inset;}
+  .logo .dot{color:var(--accent);}
+  .lang-link{font-family:var(--mono); font-size:12.5px; color:var(--text-dim);}
+  .lang-link:hover{color:var(--text);}
+
+  main{position:relative; z-index:1; max-width:880px; margin:0 auto; padding:64px 24px 100px;}
+  .eyebrow{display:flex; align-items:center; gap:9px; font-family:var(--mono); font-size:12px; letter-spacing:.14em;
+    color:var(--text-dim); text-transform:uppercase; margin-bottom:18px;}
+  .eyebrow::before{content:''; width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent); flex-shrink:0;}
+  h1{font-family:var(--display); font-weight:800; line-height:1.1; letter-spacing:-.01em; font-size:clamp(30px,6vw,46px); margin-bottom:16px;}
+  .page-sub{color:var(--text-dim); font-size:16.5px; max-width:560px; margin-bottom:56px;}
+
+  .post-list{display:flex; flex-direction:column; gap:18px;}
+  .post-card{
+    display:block; border:1px solid var(--border); border-radius:16px; padding:30px;
+    background:var(--card); transition:border-color .2s, transform .2s;
+  }
+  .post-card:hover{border-color:var(--border-accent); transform:translateY(-2px);}
+  .post-tag{font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--text-dimmer); text-transform:uppercase; margin-bottom:12px; display:block;}
+  .post-card h2{font-family:var(--display); font-weight:700; font-size:clamp(19px,3vw,24px); margin-bottom:10px; letter-spacing:-.01em;}
+  .post-card p{color:var(--text-dim); font-size:14.5px; line-height:1.55; max-width:620px;}
+  .post-arrow{display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:12.5px; color:var(--accent-2); margin-top:16px;}
+
+  .post-card.empty{
+    border-style:dashed; opacity:.55; cursor:default;
+  }
+  .post-card.empty:hover{border-color:var(--border); transform:none;}
+
+  footer{border-top:1px solid var(--border); padding:30px 24px; text-align:center; font-family:var(--mono); font-size:11.5px; color:var(--text-dimmer); position:relative; z-index:1;}
+</style>
+</head>
+<body>
+
+<div class="glow-bg"></div>
+
+<header>
+  <div class="nav-wrap">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">T</span>
+      TEMA<span class="dot">.</span>LABS
+    </a>
+    <a href="../blog-ru/" class="lang-link">RU →</a>
+  </div>
+</header>
+
+<main>
+  <div class="eyebrow">RAKSTI</div>
+  <h1>Padomi par mājaslapām un biznesu</h1>
+  <p class="page-sub">Praktiski raksti par mājaslapu izstrādi, cenām un digitālo klātbūtni — bez liekas ūdens, tikai tas, kas tiešām palīdz pieņemt lēmumu.</p>
+
+  <div class="post-list">
+    <a href="cik-maksa-majaslapa-latvija.html" class="post-card">
+      <span class="post-tag">Cenas // 5 min</span>
+      <h2>Cik maksā mājaslapa Latvijā 2026. gadā?</h2>
+      <p>Reālas cenas un skaidrojums: no kā veidojas mājaslapas izmaksas un kā izvēlēties pareizo risinājumu, nepārmaksājot.</p>
+      <span class="post-arrow">LASĪT RAKSTU →</span>
+    </a>
+
+    <div class="post-card empty">
+      <span class="post-tag">Drīzumā</span>
+      <h2>Mājaslapa vai Instagram: kas der maziem uzņēmumiem Latvijā</h2>
+      <p>Raksts tapšanas procesā.</p>
+    </div>
+
+    <div class="post-card empty">
+      <span class="post-tag">Drīzumā</span>
+      <h2>Kā izvēlēties web studiju: 7 jautājumi pirms līguma parakstīšanas</h2>
+      <p>Raksts tapšanas procesā.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2026 TEMA.LABS. Visas tiesības aizsargātas. · <a href="../index.html" style="color:var(--text-dimmer);">Sākumlapa</a>
+</footer>
+
+</body>
+  </html>
