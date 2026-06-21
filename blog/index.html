@@ -10,6 +10,9 @@
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#ff3d14">
 <link rel="canonical" href="https://temalabs.github.io/main/blog/">
+<link rel="alternate" hreflang="lv" href="https://temalabs.github.io/main/blog/?lang=lv">
+<link rel="alternate" hreflang="ru" href="https://temalabs.github.io/main/blog/?lang=ru">
+<link rel="alternate" hreflang="en" href="https://temalabs.github.io/main/blog/?lang=en">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="TEMA.LABS">
@@ -28,8 +31,7 @@
   "@type": "CollectionPage",
   "name": "TEMA.LABS Raksti",
   "url": "https://temalabs.github.io/main/blog/",
-  "inLanguage": "lv",
-  "isPartOf": { "@id": "https://temalabs.github.io/main/#website" }
+  "inLanguage": "lv"
 }
 </script>
 
@@ -39,9 +41,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#08070a; --bg-soft:#0d0c0f; --card:#0f0d10;
+    --bg:#08070a; --card:#0f0d10; --card-soft:#131114;
     --accent:#ff3d14; --accent-2:#ff6a3d; --accent-glow:rgba(255,61,20,.45);
-    --yellow:#ffd83d; --text:#f2f0ee; --text-dim:#9a9a9a; --text-dimmer:#6c6c6c;
+    --text:#f2f0ee; --text-dim:#9a9a9a; --text-dimmer:#6c6c6c;
     --border:rgba(255,255,255,.08); --border-accent:rgba(255,80,30,.28);
     --mono:'JetBrains Mono', monospace; --display:'Unbounded', sans-serif; --body:'Inter', sans-serif;
   }
@@ -57,12 +59,15 @@
   header{position:sticky; top:0; z-index:50; background:rgba(8,7,10,.86); backdrop-filter:blur(10px); border-bottom:1px solid var(--border);}
   .nav-wrap{max-width:880px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px;}
   .logo{display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:700; font-size:15px; letter-spacing:.02em;}
-  .logo-mark{position:relative; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--accent);
+  .logo-mark{width:34px; height:34px; border-radius:9px; border:1.5px solid var(--accent);
     display:flex; align-items:center; justify-content:center; color:var(--accent); font-weight:900; font-size:17px; flex-shrink:0;
     box-shadow:0 0 16px var(--accent-glow) inset;}
   .logo .dot{color:var(--accent);}
-  .lang-link{font-family:var(--mono); font-size:12.5px; color:var(--text-dim);}
-  .lang-link:hover{color:var(--text);}
+  .lang-switch{display:flex; gap:4px; background:var(--card-soft); border:1px solid var(--border); border-radius:9px; padding:3px;}
+  .lang-switch button{font-family:var(--mono); font-size:11.5px; font-weight:600; padding:6px 10px; border-radius:6px; color:var(--text-dimmer);
+    letter-spacing:.03em; background:transparent; border:none; cursor:pointer;}
+  .lang-switch button.active{background:var(--accent); color:#0c0a09;}
+  .lang-switch button:hover:not(.active){color:var(--text);}
 
   main{position:relative; z-index:1; max-width:880px; margin:0 auto; padding:64px 24px 100px;}
   .eyebrow{display:flex; align-items:center; gap:9px; font-family:var(--mono); font-size:12px; letter-spacing:.14em;
@@ -82,10 +87,11 @@
   .post-card p{color:var(--text-dim); font-size:14.5px; line-height:1.55; max-width:620px;}
   .post-arrow{display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:12.5px; color:var(--accent-2); margin-top:16px;}
 
-  .post-card.empty{
-    border-style:dashed; opacity:.55; cursor:default;
-  }
+  .post-card.empty{border-style:dashed; opacity:.55; cursor:default;}
   .post-card.empty:hover{border-color:var(--border); transform:none;}
+
+  [data-lang-content]{display:none;}
+  [data-lang-content].active{display:block;}
 
   footer{border-top:1px solid var(--border); padding:30px 24px; text-align:center; font-family:var(--mono); font-size:11.5px; color:var(--text-dimmer); position:relative; z-index:1;}
 </style>
@@ -100,40 +106,91 @@
       <span class="logo-mark">T</span>
       TEMA<span class="dot">.</span>LABS
     </a>
-    <a href="../blog-ru/" class="lang-link">RU →</a>
+    <div class="lang-switch">
+      <button class="active" data-lang="lv" onclick="setLang('lv')">LV</button>
+      <button data-lang="ru" onclick="setLang('ru')">RU</button>
+      <button data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
   </div>
 </header>
 
 <main>
-  <div class="eyebrow">RAKSTI</div>
-  <h1>Padomi par mājaslapām un biznesu</h1>
-  <p class="page-sub">Praktiski raksti par mājaslapu izstrādi, cenām un digitālo klātbūtni — bez liekas ūdens, tikai tas, kas tiešām palīdz pieņemt lēmumu.</p>
-
-  <div class="post-list">
-    <a href="cik-maksa-majaslapa-latvija.html" class="post-card">
-      <span class="post-tag">Cenas // 5 min</span>
-      <h2>Cik maksā mājaslapa Latvijā 2026. gadā?</h2>
-      <p>Reālas cenas un skaidrojums: no kā veidojas mājaslapas izmaksas un kā izvēlēties pareizo risinājumu, nepārmaksājot.</p>
-      <span class="post-arrow">LASĪT RAKSTU →</span>
-    </a>
-
-    <div class="post-card empty">
-      <span class="post-tag">Drīzumā</span>
-      <h2>Mājaslapa vai Instagram: kas der maziem uzņēmumiem Latvijā</h2>
-      <p>Raksts tapšanas procesā.</p>
+  <!-- LV -->
+  <div data-lang-content="lv" class="active">
+    <div class="eyebrow">RAKSTI</div>
+    <h1>Padomi par mājaslapām un biznesu</h1>
+    <p class="page-sub">Praktiski raksti par mājaslapu izstrādi, cenām un digitālo klātbūtni — bez liekas ūdens, tikai tas, kas tiešām palīdz pieņemt lēmumu.</p>
+    <div class="post-list">
+      <a href="lv/cik-maksa-majaslapa.html" class="post-card">
+        <span class="post-tag">Cenas // 5 min</span>
+        <h2>Cik īsti maksā mājaslapa mazam biznesam 2026. gadā?</h2>
+        <p>100€ vai 5000€? Skaidrojam, no kā atkarīga cena, kas iekļauts 150–500€ tarifos un kad lielāka summa ir lieka.</p>
+        <span class="post-arrow">LASĪT RAKSTU →</span>
+      </a>
+      <div class="post-card empty">
+        <span class="post-tag">Drīzumā</span>
+        <h2>Mājaslapa vai Instagram: kas der maziem uzņēmumiem Latvijā</h2>
+        <p>Raksts tapšanas procesā.</p>
+      </div>
     </div>
+  </div>
 
-    <div class="post-card empty">
-      <span class="post-tag">Drīzumā</span>
-      <h2>Kā izvēlēties web studiju: 7 jautājumi pirms līguma parakstīšanas</h2>
-      <p>Raksts tapšanas procesā.</p>
+  <!-- RU -->
+  <div data-lang-content="ru">
+    <div class="eyebrow">СТАТЬИ</div>
+    <h1>Советы о сайтах и бизнесе</h1>
+    <p class="page-sub">Практические статьи о разработке сайтов, ценах и цифровом присутствии — без воды, только то, что реально помогает принять решение.</p>
+    <div class="post-list">
+      <a href="ru/skolko-stoit-sayt.html" class="post-card">
+        <span class="post-tag">Цены // 5 мин</span>
+        <h2>Сколько на самом деле стоит сайт для малого бизнеса в 2026?</h2>
+        <p>100€ или 5000€? Разбираем, от чего зависит цена, что входит в сегмент 150–500€ и когда большая сумма не нужна.</p>
+        <span class="post-arrow">ЧИТАТЬ СТАТЬЮ →</span>
+      </a>
+      <div class="post-card empty">
+        <span class="post-tag">Скоро</span>
+        <h2>Сайт или Instagram: что подходит малому бизнесу в Латвии</h2>
+        <p>Статья в разработке.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EN -->
+  <div data-lang-content="en">
+    <div class="eyebrow">ARTICLES</div>
+    <h1>Tips on websites and business</h1>
+    <p class="page-sub">Practical articles on website development, pricing and digital presence — no fluff, just what actually helps you decide.</p>
+    <div class="post-list">
+      <a href="en/website-cost.html" class="post-card">
+        <span class="post-tag">Pricing // 5 min</span>
+        <h2>What does a website really cost for small business in 2026?</h2>
+        <p>€100 or €5000? We break down what determines pricing, what's included at €150–500, and when more is overkill.</p>
+        <span class="post-arrow">READ ARTICLE →</span>
+      </a>
+      <div class="post-card empty">
+        <span class="post-tag">Coming soon</span>
+        <h2>Website or Instagram: what works for small business in Latvia</h2>
+        <p>Article in progress.</p>
+      </div>
     </div>
   </div>
 </main>
 
 <footer>
-  © 2026 TEMA.LABS. Visas tiesības aizsargātas. · <a href="../index.html" style="color:var(--text-dimmer);">Sākumlapa</a>
+  © 2026 TEMA.LABS · <a href="../index.html" style="color:var(--text-dimmer);">Sākumlapa / Главная / Home</a>
 </footer>
 
+<script>
+function setLang(lang){
+  document.querySelectorAll('[data-lang-content]').forEach(el=>{
+    el.classList.toggle('active', el.dataset.langContent===lang);
+  });
+  document.querySelectorAll('.lang-switch button').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.lang===lang);
+  });
+  document.documentElement.lang = lang;
+}
+</script>
+
 </body>
-  </html>
+</html>
